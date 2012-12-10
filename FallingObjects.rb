@@ -115,23 +115,23 @@ class FallingObjects < Wx::Frame
     elsif code == K_LEFT
       @player.x -= @player.speed()
     end
-    
+
     #move to the opposite side if player starts going off screen
     if(@player.x < 0)
       @player.x = 418
     elsif(@player.x + 76 >= 500)
       @player.x = 0
     end
-    
+
     #repaint the screen
     update()
   end
 
   #method that is called when the "about" option is selected. Shows game information
   def on_about()
-    Wx::about_box( :name       => "Falling obstacle game",
-    :version    => '1.0',
-    :developers => ['Chad Auld', 'Shahriar Darafsheh', 'Robbie Ginsburg'] )
+    Wx::about_box(:name => "Falling obstacle game",
+    :version => '1.0',
+    :developers => ['Chad Auld', 'Shar Darafsheh', 'Robbie Ginsburg'])
   end
 
   #method to reset instance variables to start-of-game state
