@@ -52,8 +52,8 @@ class FallingObjects < Wx::Frame
       item.y += item.speed()
 
       #check for collision
-      if((item.x() >= playerX && item.x() <= playerXmax) || ((item.x() + 45)) >= playerX && ((item.x() + 45) <= playerXmax))
-        if((item.y() >= playerY && item.y() <= playerYmax) || ((item.y() + 45)) >= playerY && ((item.y() + 45) <= playerYmax))
+      if((item.x() >= playerX && item.x() <= playerXmax) || ((item.x() + 37)) >= playerX && ((item.x() + 37) <= playerXmax))
+        if((item.y() >= playerY && item.y() <= playerYmax) || ((item.y() + 37)) >= playerY && ((item.y() + 37) <= playerYmax))
           @collision = true
         end
       end
@@ -67,7 +67,7 @@ class FallingObjects < Wx::Frame
 
     #create a new obstacle every 9/10 of a second (25 executions of this method)
     @addNewObstacle += 1
-    if(@addNewObstacle == 25)
+    if(@addNewObstacle == 50)
       randomX = rand(0..404)
       randomSpeed = rand(1..3)
       @obstacles.push(ImageObject.new(randomX, -100, "obstacle.png", randomSpeed))
@@ -78,7 +78,7 @@ class FallingObjects < Wx::Frame
 
   #method for painting to the screen. Double buffered to reduce flickering
   def on_paint_screen()
-    paint_buffered do |dc|
+    paint do |dc|
 
       dc.set_text_foreground(Wx::BLUE)
       dc.set_brush(Wx::LIGHT_GREY_BRUSH)
@@ -129,7 +129,8 @@ class FallingObjects < Wx::Frame
 
   #method that is called when the "about" option is selected. Shows game information
   def on_about()
-    Wx::about_box(:name => "Falling obstacle game",
+    Wx::about_box(:name => "Falling obstacle game\n",
+    :description => "Directions: Use the arrow keys to move around and dodge the spikes.",
     :version => '1.0',
     :developers => ['Chad Auld', 'Shar Darafsheh', 'Robbie Ginsburg'])
   end
