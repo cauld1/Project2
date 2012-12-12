@@ -65,7 +65,7 @@ class FallingObjects < Wx::Frame
       end
     }
 
-    #create a new obstacle every 1.225 seconds (35 executions of this method)
+    #create a new obstacle every .875 seconds (35 executions of this method)
     @addNewObstacle += 1
     if(@addNewObstacle == 35)
       randomX = rand(0..404)
