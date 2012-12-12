@@ -78,7 +78,7 @@ class FallingObjects < Wx::Frame
 
   #method for painting to the screen. Double buffered to reduce flickering
   def on_paint_screen()
-    paint do |dc|
+    paint_buffered do |dc|
 
       dc.set_text_foreground(Wx::BLUE)
       dc.set_brush(Wx::LIGHT_GREY_BRUSH)
