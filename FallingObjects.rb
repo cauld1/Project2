@@ -40,9 +40,9 @@ class FallingObjects < Wx::Frame
   #method that runs the game. Updates positions and checks for collisions
   def game_loop()
     playerX = @player.x()
-    playerXmax = playerX + 60
+    playerXmax = playerX + 58
     playerY = @player.y()
-    playerYmax = playerY + 60
+    playerYmax = playerY + 58
 
     #update position of each obstacle, check for collisions, repaint
     @obstacles.each() {
@@ -65,9 +65,9 @@ class FallingObjects < Wx::Frame
       end
     }
 
-    #create a new obstacle every 9/10 of a second (25 executions of this method)
+    #create a new obstacle every 1.225 seconds (35 executions of this method)
     @addNewObstacle += 1
-    if(@addNewObstacle == 50)
+    if(@addNewObstacle == 35)
       randomX = rand(0..404)
       randomSpeed = rand(1..3)
       @obstacles.push(ImageObject.new(randomX, -100, "obstacle.png", randomSpeed))
